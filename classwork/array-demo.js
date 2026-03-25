@@ -1,10 +1,9 @@
-// Create an array with 5 items
 let fruits = ['Apple', 'Banana', 'Orange', 'Mango', 'Grapes'];
 
 console.log("===== Using For Loop =====");
 // Using for loop to iterate through the array
 for (let i = 0; i < fruits.length; i++) {
-    console.log(i + 1 + ". " + fruits[i]);
+    console.log((i + 1) + ". " + fruits[i]);
 }
 
 console.log("\n===== Using ForEach Loop =====");
