@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Practice</title>
+
+    <style>
+        .box {
+            border: 1px solid black;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="boss">Dilraj Bista</div>
+
+    <div class="box" id="box1">This is box 1</div>
+    <div class="box" id="box2">This is box 2</div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+
+            // Change boss text
+            const boss = document.getElementById('boss');
+            boss.innerText = 'Ram Bahadur';
+
+            // Select boxes
+            const box1 = document.getElementById('box1');
+            const box2 = document.getElementById('box2');
+            const boxes = document.querySelectorAll('.box');
+
+            // Console logs
+            console.log(boss);
+            console.log(box1);
+            console.log(box2);
+            console.log(boxes);
+
+            // Use for loop
+            for (let i = 0; i < boxes.length; i++) {
+                boxes[i].addEventListener('click', function () {
+                    boxes[i].innerText = "You clicked box " + (i + 1);
+                });
+            }
+
+        });
+    </script>
+
+</body>
+</html>

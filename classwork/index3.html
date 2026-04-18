@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="textBox">Click a button</div>
+
+    <button id="redBtn">Red</button>
+    <button id="yellowBtn">Yellow</button>
+    <button id="blueBtn">Blue</button>
+    <script>
+        const textBox = document.getElementById("textBox");
+
+        document.getElementById("redBtn").addEventListener("click", () => {
+            textBox.innerText = "Red button is clicked";
+        });
+
+        document.getElementById("yellowBtn").addEventListener("click", () => {
+            textBox.innerText = "Yellow button is clicked";
+        });
+
+        document.getElementById("blueBtn").addEventListener("click", () => {
+            textBox.innerText = "Blue button is clicked";
+        });
+    </script>
+</body>
+
+</html>

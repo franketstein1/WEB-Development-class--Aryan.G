@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dino Game - Jump Challenge</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <h1 class="logo">GAME HUB</h1>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="page2.html" class="nav-link">Memory Game</a></li>
+        <li><a href="page3.html" class="nav-link active">Dino Game</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="game-shell game-page">
+    <header class="game-header">
+      <h1>Dino Jump Game</h1>
+      <p>Jump over obstacles and beat your high score!</p>
+    </header>
+
+    <section class="dino-stats">
+      <div class="stat">Score: <span id="dino-score">0</span></div>
+      <div class="stat">High Score: <span id="dino-high-score">0</span></div>
+      <div class="stat" id="game-status">Press SPACE or Click to Start</div>
+    </section>
+
+    <div id="dino-game-area" class="dino-game-area">
+      <div id="dino" class="dino">◀▶</div>
+      <div id="obstacles-container" class="obstacles-container"></div>
+      <div id="ground" class="ground"></div>
+    </div>
+
+    <section class="game-info">
+      <h3>How to Play</h3>
+      <ul>
+        <li><strong>SPACEBAR</strong> or <strong>CLICK</strong> to make the dino jump</li>
+        <li>Jump over incoming obstacles</li>
+        <li>Game speed increases over time</li>
+        <li>Avoid obstacles to increase your score</li>
+        <li>One hit and it's game over!</li>
+      </ul>
+    </section>
+
+    <section class="dino-controls">
+      <button id="dino-restart-btn" class="btn">New Game</button>
+      <button id="dino-pause-btn" class="btn">Pause</button>
+    </section>
+
+    <footer class="game-footer">
+      <a href="index.html" class="btn">Back to Hub</a>
+    </footer>
+  </main>
+
+  <script src="dino-game.js"></script>
+</body>
+</html>
