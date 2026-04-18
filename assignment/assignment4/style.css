@@ -1,0 +1,28 @@
+/* Assignment 4 - Video Player Styling */
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #1a1a1a;
+}
+
+section {
+  background-color: #000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+video {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+#playButton {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#playButton:hover svg circle {
+  fill-opacity: 0.9;
+}
