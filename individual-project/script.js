@@ -117,22 +117,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // CONTACT FORM SUBMISSION WITH EMAILJS
+    // CONTACT FORM SUBMISSION WITH FORMSPREE
     const contactForm = document.getElementById('contactForm');
     const submitBtn = document.getElementById('submit-btn');
 
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
             const originalText = submitBtn.innerHTML;
             submitBtn.innerHTML = 'Sending...';
             submitBtn.disabled = true;
 
-            // Send email using EmailJS
-            // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with actual EmailJS keys
-            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', contactForm)
-                .then(() => {
+            try {
+                const formData = new FormData(contactForm);
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
                     submitBtn.innerHTML = 'Message Sent Successfully!';
                     submitBtn.style.background = '#10b981'; // Success green
                     contactForm.reset();
@@ -142,17 +149,20 @@ document.addEventListener('DOMContentLoaded', () => {
                         submitBtn.style.background = '';
                         submitBtn.disabled = false;
                     }, 3000);
-                }, (error) => {
-                    console.error('EmailJS Error:', error);
-                    submitBtn.innerHTML = 'Failed to Send';
-                    submitBtn.style.background = '#ef4444'; // Error red
-                    
-                    setTimeout(() => {
-                        submitBtn.innerHTML = originalText;
-                        submitBtn.style.background = '';
-                        submitBtn.disabled = false;
-                    }, 3000);
-                });
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                console.error('Formspree Error:', error);
+                submitBtn.innerHTML = 'Failed to Send';
+                submitBtn.style.background = '#ef4444'; // Error red
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.style.background = '';
+                    submitBtn.disabled = false;
+                }, 3000);
+            }
         });
     }
 
